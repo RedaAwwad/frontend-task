@@ -14,8 +14,9 @@ export const config = {
   // - _next/image (image optimization files)
   // - favicon.ico
   // - login (auth pages)
+  // - / (index page)
   // - products (the public products page)
   matcher: [
-    "/((?!api/auth|_next/static|_next/image|favicon.ico|login|products).*)",
+    "/((?!api/auth|_next/static|_next/image|favicon.ico|login|products|$).*)",
   ],
 };

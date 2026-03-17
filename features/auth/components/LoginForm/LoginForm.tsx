@@ -27,7 +27,7 @@ export function LoginForm() {
       setError("Invalid username or password");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push("/profile");
       router.refresh(); // Refresh layout to grab new session
     }
   };
