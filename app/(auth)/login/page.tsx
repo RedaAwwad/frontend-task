@@ -1,6 +1,6 @@
-import { LoginForm } from "@/components/LoginForm";
+import { LoginForm } from "@/features/auth/components/LoginForm/LoginForm";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { authOptions } from "@/shared/lib/auth";
 import { redirect } from "next/navigation";
 
 export default async function LoginPage() {
