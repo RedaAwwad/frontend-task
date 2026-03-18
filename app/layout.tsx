@@ -13,6 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 import { NextAuthProvider } from "@/features/auth/components/NextAuthProvider/NextAuthProvider";
+import { StoreProvider } from "@/shared/store/StoreProvider";
+import { cn } from "@/shared/lib/utils";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,9 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          `${geistSans.variable} ${geistMono.variable}`,
+          "antialiased bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100",
+        )}
       >
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <StoreProvider>
+          <NextAuthProvider>{children}</NextAuthProvider>
+        </StoreProvider>
       </body>
     </html>
   );
