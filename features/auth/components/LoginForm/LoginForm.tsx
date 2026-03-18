@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { LogIn } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button/Button";
+import { Input } from "@/shared/components/ui/form/Input/Input";
 
 export function LoginForm() {
   const [username, setUsername] = useState("emilys");
@@ -53,38 +54,26 @@ export function LoginForm() {
 
         <div className="space-y-4 rounded-md shadow-sm">
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              htmlFor="username"
-            >
-              Username
-            </label>
-            <input
+            <Input
               id="username"
               name="username"
               type="text"
+              label="Username"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition-all"
               placeholder="Username"
             />
           </div>
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
+            <Input
               id="password"
               name="password"
               type="password"
+              label="Password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition-all"
               placeholder="Password"
             />
           </div>
