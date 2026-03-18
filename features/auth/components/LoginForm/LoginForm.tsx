@@ -4,6 +4,8 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { LogIn } from "lucide-react";
+import { Button } from "@/shared/components/ui/Button/Button";
+import { Input } from "@/shared/components/ui/form/Input/Input";
 
 export function LoginForm() {
   const [username, setUsername] = useState("emilys");
@@ -27,7 +29,7 @@ export function LoginForm() {
       setError("Invalid username or password");
       setLoading(false);
     } else {
-      router.push("/");
+      router.push("/profile");
       router.refresh(); // Refresh layout to grab new session
     }
   };
@@ -52,54 +54,43 @@ export function LoginForm() {
 
         <div className="space-y-4 rounded-md shadow-sm">
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              htmlFor="username"
-            >
-              Username
-            </label>
-            <input
+            <Input
               id="username"
               name="username"
               type="text"
+              label="Username"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition-all"
               placeholder="Username"
             />
           </div>
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
+            <Input
               id="password"
               name="password"
               type="password"
+              label="Password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition-all"
               placeholder="Password"
             />
           </div>
         </div>
 
         <div>
-          <button
+          <Button
             type="submit"
-            disabled={loading}
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg"
+            variant="primary"
+            size="lg"
+            isLoading={loading}
+            title="Sign In"
+            className="w-full"
           >
-            <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-              <LogIn className="h-5 w-5 text-blue-500 group-hover:text-blue-400 transition-colors" />
-            </span>
-            {loading ? "Signing in..." : "Sign in"}
-          </button>
+            <LogIn className="h-5 w-5 me-2 text-blue-500 group-hover:text-blue-400 transition-colors" />
+            Sign In
+          </Button>
         </div>
       </form>
 
