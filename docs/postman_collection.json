@@ -1,0 +1,111 @@
+{
+  "info": {
+    "name": "ShopSwift API (DummyJSON)",
+    "description": "Postman collection for the eCommerce web application API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"emilys\",\n    \"password\": \"emilyspass\",\n    \"expiresInMins\": 60\n}"
+            },
+            "url": {
+              "raw": "https://dummyjson.com/auth/login",
+              "protocol": "https",
+              "host": ["dummyjson", "com"],
+              "path": ["auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products?limit=30&skip=0",
+              "protocol": "https",
+              "host": ["dummyjson", "com"],
+              "path": ["products"],
+              "query": [
+                { "key": "limit", "value": "30" },
+                { "key": "skip", "value": "0" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/search?q=phone",
+              "protocol": "https",
+              "host": ["dummyjson", "com"],
+              "path": ["products", "search"],
+              "query": [{ "key": "q", "value": "phone" }]
+            }
+          }
+        },
+        {
+          "name": "Get Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/category-list",
+              "protocol": "https",
+              "host": ["dummyjson", "com"],
+              "path": ["products", "category-list"]
+            }
+          }
+        },
+        {
+          "name": "Get Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/category/smartphones",
+              "protocol": "https",
+              "host": ["dummyjson", "com"],
+              "path": ["products", "category", "smartphones"]
+            }
+          }
+        },
+        {
+          "name": "Get Product Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/1",
+              "protocol": "https",
+              "host": ["dummyjson", "com"],
+              "path": ["products", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

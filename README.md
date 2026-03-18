@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Task
+
+This is a responsive web application that displays and manages a list of products, built with [Next.js](https://nextjs.org), React, and Tailwind CSS.
+
+## Features
+
+- **Authentication**: Fully integrated with NextAuth.js (`next-auth`) using Credentials Provider and `dummyjson.com/auth` for login.
+- **Protected Routes**: Middleware protects the application by default, only letting authenticated users proceed.
+- **Public Routes**: The `/products` route (and any children) is completely public and explicitly allowed via the authentication middleware.
+- **UI Components**: Now using `lucide-react` for customized iconography.
 
 ## Getting Started
 
-First, run the development server:
+First, ensure you have the required environment variables. Create a `.env.local` file in the root of the project with the following (these are the minimum requirements):
 
 ```bash
+NEXTAUTH_SECRET=fallback_secret_for_development
+NEXTAUTH_URL=http://localhost:3000
+```
+
+_Note: In production, generate a strong random string for `NEXTAUTH_SECRET`._
+
+### Running the Development Server
+
+```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# or yarn dev / pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Postman Collection
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A Postman collection containing the API endpoints used in this project is provided. You can find it in the `docs` folder:
 
-## Learn More
+- [`docs/postman_collection.json`](./docs/postman_collection.json)
+
+To use it, open Postman and click **Import**, then select the `postman_collection.json` file to load all the pre-configured endpoints and environments.
+
+## Learn More Next.js
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
