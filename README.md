@@ -30,6 +30,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Postman Collection
+
+A Postman collection containing the API endpoints used in this project is provided. You can find it in the `docs` folder:
+
+- [`docs/postman_collection.json`](./docs/postman_collection.json)
+
+To use it, open Postman and click **Import**, then select the `postman_collection.json` file to load all the pre-configured endpoints and environments.
+
 ## Learn More Next.js
 
 To learn more about Next.js, take a look at the following resources:
