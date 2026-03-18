@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { LogIn } from "lucide-react";
+import { Button } from "@/shared/components/ui/Button/Button";
 
 export function LoginForm() {
   const [username, setUsername] = useState("emilys");
@@ -90,16 +91,17 @@ export function LoginForm() {
         </div>
 
         <div>
-          <button
+          <Button
             type="submit"
-            disabled={loading}
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg"
+            variant="primary"
+            size="lg"
+            isLoading={loading}
+            title="Sign In"
+            className="w-full"
           >
-            <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-              <LogIn className="h-5 w-5 text-blue-500 group-hover:text-blue-400 transition-colors" />
-            </span>
-            {loading ? "Signing in..." : "Sign in"}
-          </button>
+            <LogIn className="h-5 w-5 me-2 text-blue-500 group-hover:text-blue-400 transition-colors" />
+            Sign In
+          </Button>
         </div>
       </form>
 

@@ -2,7 +2,7 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { User, LogOut } from "lucide-react";
-import Image from "next/image";
+import { Button } from "@/shared/components/ui/Button/Button";
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
@@ -42,43 +42,37 @@ export default function ProfilePage() {
                   <User className="h-16 w-16 text-gray-400" />
                 )}
               </div>
-              <button
+              <Button
                 onClick={() => signOut({ callbackUrl: "/login" })}
-                className="mb-4 flex items-center gap-2 py-2 px-4 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 dark:bg-red-900/20 dark:hover:bg-red-900/40 dark:text-red-400 transition-colors text-sm font-medium"
+                variant="danger"
+                size="md"
+                title="Sign Out"
               >
-                <LogOut className="h-4 w-4" />
+                <LogOut className="h-4 w-4 me-2" />
                 Sign Out
-              </button>
-            </div>
-
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                {session?.user?.name || "Anonymous User"}
-              </h1>
-              <p className="text-gray-500 dark:text-gray-400 mt-1">
-                {session?.user?.email || "No email provided"}
-              </p>
+              </Button>
             </div>
 
             <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h1 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Account Details
-              </h2>
+              </h1>
+
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6">
                 <div>
                   <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                    User ID
+                    Fullname
                   </dt>
                   <dd className="mt-1 text-sm text-gray-900 dark:text-white font-mono bg-gray-50 dark:bg-gray-800/50 p-2 rounded">
-                    {(session?.user as any)?.id || "N/A"}
+                    {session?.user?.name || "N/A"}
                   </dd>
                 </div>
                 <div>
                   <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                    Session Strategy
+                    Email
                   </dt>
                   <dd className="mt-1 text-sm text-gray-900 dark:text-white font-mono bg-gray-50 dark:bg-gray-800/50 p-2 rounded">
-                    JWT
+                    {session?.user?.email || "N/A"}
                   </dd>
                 </div>
               </dl>
