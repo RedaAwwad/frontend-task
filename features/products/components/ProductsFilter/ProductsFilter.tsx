@@ -7,6 +7,7 @@ import {
   setSelectedCategory,
 } from "@/features/products/store/productSlice";
 import { useGetCategoriesQuery } from "@/features/products/store/productApi";
+import { ProductCategory } from "@/features/products/types";
 import { Search } from "lucide-react";
 import { Input } from "@/shared/components/ui/form/Input/Input";
 
@@ -38,11 +39,15 @@ export function ProductsFilter() {
         className="block w-full sm:w-48 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 transition-all shadow-sm border"
       >
         <option value="">All Categories</option>
-        {categories.map((c: any) => (
-          <option key={c.slug || c} value={c.slug || c}>
-            {c.name || c}
-          </option>
-        ))}
+        {categories.map((c: ProductCategory) => {
+          const value = typeof c === "string" ? c : c.slug;
+          const label = typeof c === "string" ? c : c.name;
+          return (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

@@ -9,7 +9,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
-      href={`/product/${product.id}`}
+      href={`/products/${product.id}`}
       className="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl dark:hover:shadow-black/40 transition-all duration-300 hover:-translate-y-1"
     >
       <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4">
