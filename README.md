@@ -2,6 +2,10 @@
 
 This is a responsive web application that displays and manages a list of products, built with [Next.js](https://nextjs.org), React, and Tailwind CSS.
 
+## Live Demo
+
+You can view the live deployment of this application here: **[https://task-teal-pi.vercel.app/](https://task-teal-pi.vercel.app/)**
+
 ## Features
 
 - **Authentication**: Fully integrated with NextAuth.js (`next-auth`) using Credentials Provider and `dummyjson.com/auth` for login.
